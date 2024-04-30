@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option csharp_namespace = "BMS.Modbus";
+
+package BMSStream;
+
+service BMSService{
+	rpc Start(stream .BMSStream.BMSAuth) returns (stream .BMSStream.BMSMessage);
+}
+
+message BMSMessage{
+	string username=1;
+	string message=2;
+}
+
+message BMSAuth{
+	string username=1;
+	string token=2;
+}

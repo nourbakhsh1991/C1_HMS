@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option csharp_namespace = "BMS.Api";
+
+package BMSDataCollector;
+
+service GrpcBMSDataCollectorService{
+	rpc Start(stream BMSDataMessage) returns (stream Empty );
+	rpc SendData(BMSDataMessage) returns (Empty );
+}
+
+message BMSDataMessage{
+	string data=1;
+}
+
+message Empty{
+}
